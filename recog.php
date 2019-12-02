@@ -132,22 +132,25 @@ class recog {
 
         $this->cut_card($left, $right, $top, $bottom);
         $this->show_message("Cut card.");
-		$this->output("cut", $this->img);
+	$this->output("cut", $this->img);
 
         $this->cut_id_number();
         $this->show_message("Cut id number.");
-		$this->output("id", $this->img);
+	$this->output("id", $this->img);
 
         $this->black_and_white();
         $this->show_message("Black & White id number.");
-		$this->output("id_bw", $this->img);
+	$this->output("id_bw", $this->img);
 
         $this->img = $this->screening($this->img);
         $this->show_message("Screening id number.");
-		$this->output("id_screen", $this->img);
+	$this->output("id_screen", $this->img);
 
         $c_arr = $this->split();
         $this->show_message("Split numbers.");
+	for ($i = 0; $i < count($c_arr); $i++) {
+            $this->output("{$i}", $c_arr[$i]);
+        }
 
         $id_number = '';
         foreach ($c_arr as $c) {
